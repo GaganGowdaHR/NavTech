@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "Name": "lenin-slimfit",
+      "Catagory": "Shirt",
+      "Date": ""
+    },
+    {
+      "id": 2,
+      "Name": "Nike",
+      "Catagory": "shoes"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

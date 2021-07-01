@@ -1,0 +1,67 @@
+<mat-toolbar>
+    <h1 class="title">Order Management System</h1>
+    <div class="flex">
+        <button type="button" (click)="clickAddOrder()"  data-bs-toggle="modal" data-bs-target="#exampleModal" mat-raised-button color="accent" class="mx-3">Place Order</button>
+        <!-- <a [routerLink]="['login']" routerActiveLink="active"> -->
+          <button (click)="logout()" type="button" mat-raised-button color="accent" class="mx-3">Log Out</button>
+        <!-- </a> -->
+    </div>
+  </mat-toolbar>
+  
+  <table class="table mt-3">
+      <thead>
+          <tr>
+              <th scope="col">OrderID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Catagory</th>
+              <th scope="col">Date</th>
+              <th scope="col">Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let row of orderData">
+              <td>{{row.id}}</td>
+              <td>{{row.Name}}</td>
+              <td>{{row.Catagory}}</td>
+              <td>{{dateToday | date}}</td>
+              <td>
+                  <button mat-raised-button color="primary" (click)="onEdit(row)" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                  <button mat-raised-button color="warn" (click)="deleteOrder(row)" class="mx-3">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]='formValue'>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">ID</label>
+                    <input type="text" formControlName="ID" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Name</label>
+                    <input type="text" formControlName="Name" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Catagory</label>
+                    <input type="text" formControlName="Catagory" class="form-control" id="exampleInputPassword1">
+                  </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+            <button mat-raised-button color="accent" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button mat-raised-button color="primary" *ngIf="showAdd" (click)="postOrderDetails()" class="btn btn-primary" class="mx-3">Add Order</button>
+            <button mat-raised-button color="primary" *ngIf="showUpdate" (click)="updateOrderDetails()" class="mx-3">Update Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  

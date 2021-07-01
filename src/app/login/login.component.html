@@ -1,0 +1,25 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+      </div>
+  
+      <!-- Login Form -->
+      <form>
+          <input matInput [(ngModel)]="userId" type="text" name="userId"  class="fadeIn second" placeholder="userId">
+          <input matInput [(ngModel)]="password" type="text" name="password"  class="fadeIn third"  placeholder="password">
+        <a [routerLink]="['order']" routerActiveLink="active">
+          <input (click)="validate()" type="submit" class="fadeIn fourth" value="Log In">
+        </a>
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" (click)="remember()" >Remember Me</a>
+      </div>
+  
+    </div>
+  </div>

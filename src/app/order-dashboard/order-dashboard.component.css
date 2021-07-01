@@ -1,0 +1,14 @@
+.title{
+    color: white;
+    font-size: 23px;
+}
+
+mat-toolbar{
+    background-color: midnightblue;
+}
+
+.flex{
+    margin-right: 28px;
+    position: absolute; 
+    right: 0;
+}
